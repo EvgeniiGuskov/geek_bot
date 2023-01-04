@@ -13,7 +13,7 @@ class Watches(Base):
     kind = Column(String(255), nullable=False)
     general_score = Column(Numeric(2, 1), nullable=False)
 
-    group_id = Column(Integer, ForeignKey("groups.id"))
+    group_id = Column(String(33), ForeignKey("groups.id"))
 
     mustwatches = relationship("Mustwatches")
 
@@ -24,6 +24,5 @@ class Mustwatches(Base):
     id = Column(Integer, primary_key=True)
     user_score = Column(Integer, nullable=False)
 
-    group_id = Column(Integer, ForeignKey("groups.id"))
-    user_id = Column(Integer, ForeignKey("users.id"))
     watch_id = Column(Integer, ForeignKey("watches.id"))
+    user_id = Column(Integer, ForeignKey("users.id"))
