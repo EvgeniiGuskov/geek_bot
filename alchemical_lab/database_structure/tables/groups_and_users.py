@@ -18,7 +18,6 @@ class Users(Base):
 
     id = Column(Integer, primary_key=True)
     user_id = Column(String(33), nullable=False)
-    username = Column(String(33), nullable=False)
 
     group_id = Column(String(33), ForeignKey("groups.id"))
 

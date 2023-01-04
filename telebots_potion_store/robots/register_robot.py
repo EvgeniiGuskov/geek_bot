@@ -5,8 +5,7 @@ class RegisterRobot():
     def get_user_data(self, message):
         chat_id = str(message.chat.id)
         user_id = str(message.from_user.id)
-        username = message.from_user.username
-        return chat_id, user_id, username
+        return chat_id, user_id
 
     async def register_command_response(self, message, register_result):
         if register_result:

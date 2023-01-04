@@ -12,11 +12,11 @@ class RegisterAssociate(UpdateDatabaseAssistant):
         user = self.session.query(Users).filter(Users.user_id == user_id, Users.group_id == chat_id).first()
         return user
 
-    def register_user(self, chat_id, user_id, username):
+    def register_user(self, chat_id, user_id):
         if self.is_user_registered(chat_id, user_id):
             return False
         else:
             if not self.is_group_registered(chat_id):
                 self.insert_values(Groups, id=chat_id)
-            self.insert_values(Users, user_id=user_id, username=username, group_id=chat_id)
+            self.insert_values(Users, user_id=user_id, group_id=chat_id)
             return True
