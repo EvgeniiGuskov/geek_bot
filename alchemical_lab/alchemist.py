@@ -6,9 +6,10 @@ from alchemical_lab.database_structure.tables.groups_and_users import Groups, Us
 from alchemical_lab.database_structure.tables.mustwatches import Watches, Mustwatches
 
 from alchemical_lab.associates_to_the_alchemist.register_associate import RegisterAssociate
+from alchemical_lab.associates_to_the_alchemist.add_mustwatch_associate import AddMustwatchAssociate
 
 
-class Alchemist(RegisterAssociate):
+class Alchemist(RegisterAssociate, AddMustwatchAssociate):
     __USERNAME = "postgres"
     __PASSWORD = "password"
     __HOST = "localhost"

@@ -1,4 +1,4 @@
-class RegisterRobot():
+class RegisterRobot:
     __SUCCESSFUL_REGISTRATION_MESSAGE = "Регистрация прошла успешно!"
     __ALREADY_REGISTERED_MESSAGE = "Вы уже зарегистрированы в этой группе!"
 
