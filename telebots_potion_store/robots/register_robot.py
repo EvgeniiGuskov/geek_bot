@@ -2,7 +2,7 @@ class RegisterRobot:
     __SUCCESSFUL_REGISTRATION_MESSAGE = "Регистрация прошла успешно!"
     __ALREADY_REGISTERED_MESSAGE = "Вы уже зарегистрированы в этой группе!"
 
-    def get_user_data(self, message):
+    def get_user_data_from_message(self, message):
         chat_id = str(message.chat.id)
         user_id = str(message.from_user.id)
         return chat_id, user_id

@@ -10,7 +10,6 @@ class Groups(Base):
     id = Column(String(33), primary_key=True, autoincrement=False)
 
     users = relationship("Users")
-    watches = relationship("Watches")
 
 
 class Users(Base):
@@ -21,4 +20,5 @@ class Users(Base):
 
     group_id = Column(String(33), ForeignKey("groups.id"))
 
+    watches = relationship("Watches")
     mustwatches = relationship("Mustwatches")
