@@ -1,4 +1,5 @@
 from alchemical_lab.database_structure.tables.groups_and_users import Groups, Users
+from alchemical_lab.database_structure.tables.mustwatches import UserRequests
 from alchemical_lab.associates_to_the_alchemist.assistants_to_associates.update_database_assistant import \
     UpdateDatabaseAssistant
 
@@ -9,7 +10,7 @@ class RegisterAssociate(UpdateDatabaseAssistant):
         return group
 
     def is_user_registered(self, chat_id, user_id):
-        user = self.session.query(Users).filter(Users.user_id == user_id, Users.group_id == chat_id).first()
+        user = self.session.query(Users).filter(Users.telegram_user_id == user_id, Users.group_id == chat_id).first()
         return user
 
     def register_user(self, chat_id, user_id):
@@ -18,5 +19,6 @@ class RegisterAssociate(UpdateDatabaseAssistant):
         else:
             if not self.is_group_registered(chat_id):
                 self.insert_values(Groups, id=chat_id)
-            self.insert_values(Users, user_id=user_id, group_id=chat_id)
+            users_record = self.insert_values(Users, telegram_user_id=user_id, group_id=chat_id)
+            self.insert_values(UserRequests, users_id=users_record.id)
             return True

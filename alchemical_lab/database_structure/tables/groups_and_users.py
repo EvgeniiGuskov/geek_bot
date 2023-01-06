@@ -16,9 +16,10 @@ class Users(Base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(String(33), nullable=False)
+    telegram_user_id = Column(String(33), nullable=False)
 
     group_id = Column(String(33), ForeignKey("groups.id"))
 
+    user_requests = relationship("UserRequests", uselist=False)
     watches = relationship("Watches")
     mustwatches = relationship("Mustwatches")

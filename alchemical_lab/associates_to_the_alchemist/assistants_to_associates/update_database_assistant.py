@@ -5,3 +5,4 @@ class UpdateDatabaseAssistant:
         )
         self.session.add(record)
         self.session.commit()
+        return record
