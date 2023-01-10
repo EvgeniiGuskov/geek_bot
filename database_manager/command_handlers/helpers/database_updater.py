@@ -1,4 +1,4 @@
-class UpdateDatabaseAssistant:
+class DatabaseUpdater:
     def insert_values(self, table, **kwargs):
         record = table(
             **kwargs

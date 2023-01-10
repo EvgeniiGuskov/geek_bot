@@ -1,15 +1,16 @@
 from sqlalchemy import Integer, String, Column, ForeignKey
 from sqlalchemy.orm import relationship
 
-from ..declarative_base import Base
+from database_manager.database_tables.base.declarative_base import Base
 
 
 class Groups(Base):
     __tablename__ = "groups"
 
-    id = Column(String(33), primary_key=True, autoincrement=False)
+    id = Column(String(33), primary_key=True)
 
     users = relationship("Users")
+    watches = relationship("Watches")
 
 
 class Users(Base):
@@ -21,5 +22,4 @@ class Users(Base):
     group_id = Column(String(33), ForeignKey("groups.id"))
 
     user_requests = relationship("UserRequests", uselist=False)
-    watches = relationship("Watches")
     mustwatches = relationship("Mustwatches")

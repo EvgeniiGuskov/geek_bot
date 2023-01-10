@@ -1,15 +1,13 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from alchemical_lab.database_structure.declarative_base import Base
-from alchemical_lab.database_structure.tables.groups_and_users import Groups, Users
-from alchemical_lab.database_structure.tables.mustwatches import UserRequests, Watches, Mustwatches
+from database_manager.database_tables.base.declarative_base import Base
 
-from alchemical_lab.associates_to_the_alchemist.register_associate import RegisterAssociate
-from alchemical_lab.associates_to_the_alchemist.manage_mustwatch_associate import ManageMustwatchAssociate
+from database_manager.command_handlers.register_manager import RegisterManager
+from database_manager.command_handlers.mustwatch_manager import MustwatchManager
 
 
-class Alchemist(RegisterAssociate, ManageMustwatchAssociate):
+class Alchemist(RegisterManager, MustwatchManager):
     __USERNAME = "postgres"
     __PASSWORD = "password"
     __HOST = "localhost"
