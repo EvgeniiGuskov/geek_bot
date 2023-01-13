@@ -20,7 +20,7 @@ class Watches(Base):
 
     id = Column(Integer, primary_key=True)
     title = Column(String(255), nullable=False)
-    general_score = Column(Numeric(2, 1), nullable=True)
+    general_score = Column(Numeric(3, 1, asdecimal=False), nullable=True)
 
     group_id = Column(String(33), ForeignKey("groups.id"))
 
