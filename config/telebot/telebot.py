@@ -2,14 +2,14 @@ from telebot.async_telebot import AsyncTeleBot
 
 import asyncio
 
-from telebot_secrets import TelebotSecrets
+from config.telebot.bot_config import TelebotConfig
 
 
 class Telebot:
-    __TOKEN = TelebotSecrets.TOKEN
+    __TOKEN = TelebotConfig.TOKEN
 
     def __init__(self):
-        self.bot = AsyncTeleBot(TelebotSecrets.TOKEN)
+        self.bot = AsyncTeleBot(TelebotConfig.TOKEN)
 
     def poll(self):
         asyncio.run(self.bot.polling())
