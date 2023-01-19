@@ -1,3 +1,4 @@
+from typing import Tuple, List, Dict
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
@@ -33,34 +34,44 @@ class Button:
     RECHOOSE_TITLE_BUTTON = "Поменять маствотч", "rechoose_mustwatch"
     RECHOOSE_TITLE_BUTTON_CALLBACK = RECHOOSE_TITLE_BUTTON[1]
 
-    def __make_buttons_list(self, args: tuple) -> list:
+    @classmethod
+    def __make_buttons_list(cls,
+                            args: Tuple[str, str]) -> list:
         return [InlineKeyboardButton(args[i][0], callback_data=args[i][1])
                 for i in range(len(args))]
 
-    def __markup_something(self, row_width: int, *args: InlineKeyboardButton) -> InlineKeyboardMarkup:
+    @classmethod
+    def __markup_something(cls,
+                           row_width: int,
+                           *args: Tuple[str, str]) -> InlineKeyboardMarkup:
         markup = InlineKeyboardMarkup()
         markup.row_width = row_width
-        buttons_list = self.__make_buttons_list(args)
+        buttons_list = cls.__make_buttons_list(args)
         markup.add(*buttons_list)
         return markup
 
-    def markup_add_or_delete_item(self) -> InlineKeyboardMarkup:
-        return self.__markup_something(
+    @classmethod
+    def markup_add_or_delete_item(cls) -> InlineKeyboardMarkup:
+        return cls.__markup_something(
             1,
             Button.ADD_BUTTON,
             Button.SHOW_MUSTWATCHES_BUTTON,
             Button.DELETE_BUTTON
         )
 
-    def markup_choose_user_add_item(self) -> InlineKeyboardMarkup:
-        return self.__markup_something(
+    @classmethod
+    def markup_choose_user_add_item(cls,
+                                    *args: None) -> InlineKeyboardMarkup:
+        return cls.__markup_something(
             2,
             Button.ALL_BUTTON,
             Button.ME_BUTTON,
             Button.CHOOSE_USER_BUTTON
         )
 
-    def markup_choose_specific_user(self, user_dict: dict) -> InlineKeyboardMarkup:
+    @classmethod
+    def markup_choose_specific_user(cls,
+                                    user_dict: Dict[int, str]) -> InlineKeyboardMarkup:
         markup = InlineKeyboardMarkup()
         markup.row_width = 1
         buttons_list = list()
@@ -76,7 +87,9 @@ class Button:
         markup.add(*buttons_list)
         return markup
 
-    def markup_rate_or_delete_title(self, watches_dict: dict) -> InlineKeyboardMarkup:
+    @classmethod
+    def markup_rate_or_delete_title(cls,
+                                    watches_dict: Dict[int, str]) -> InlineKeyboardMarkup:
         markup = InlineKeyboardMarkup()
         markup.row_width = 1
         buttons_list = list()
@@ -92,7 +105,9 @@ class Button:
         markup.add(*buttons_list)
         return markup
 
-    def markup_choose_or_add_title(self, watches_dict: dict) -> InlineKeyboardMarkup:
+    @classmethod
+    def markup_choose_or_add_title(cls,
+                                   watches_dict: Dict[int, str]) -> InlineKeyboardMarkup:
         markup = InlineKeyboardMarkup()
         markup.row_width = 1
         buttons_list = list()
@@ -112,7 +127,8 @@ class Button:
         markup.add(*buttons_list)
         return markup
 
-    def markup_rate_mustwatch(self) -> InlineKeyboardMarkup:
+    @classmethod
+    def markup_rate_mustwatch(cls) -> InlineKeyboardMarkup:
         markup = InlineKeyboardMarkup()
         markup.row_width = 3
         buttons_list = list()
@@ -128,15 +144,17 @@ class Button:
         markup.add(*buttons_list)
         return markup
 
-    def markup_confirm_user_request(self) -> InlineKeyboardMarkup:
-        return self.__markup_something(
+    @classmethod
+    def markup_confirm_user_request(cls) -> InlineKeyboardMarkup:
+        return cls.__markup_something(
             2,
             Button.CHANGE_USER_REQUEST_BUTTON,
             Button.CONFIRM_USER_REQUEST_BUTTON
         )
 
-    def markup_start_over(self) -> InlineKeyboardMarkup:
-        return self.__markup_something(
+    @classmethod
+    def markup_start_over(cls) -> InlineKeyboardMarkup:
+        return cls.__markup_something(
             1,
             Button.CHANGE_USER_REQUEST_BUTTON
         )
