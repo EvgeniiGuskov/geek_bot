@@ -2,8 +2,7 @@ from config.telebot.telebot import Telebot
 from config.database.alchemist import Alchemist
 from src.controller.telebot_adapter import TelebotAdapter
 from src.view.events_listeners.register_listener.register_view import RegisterViewer
-from src.view.events_listeners.mustwatch_rating_listener.mustwatch_rating_view import \
-    MustwatchRatingViewer
+from src.view.events_listeners.mustwatch_rating_listener.mustwatch_rating_view import MustwatchRatingViewer
 from src.view.events_listeners.mustwatch_listener.mustwatch_view import MustwatchViewer
 from src.service.register_service import RegisterService
 from src.service.mustwatch_rating_service import MustwatchRatingService
@@ -18,7 +17,6 @@ from src.model.data_access_layer.groups.groups_redactor import GroupsRedactor
 from src.model.data_access_layer.users.users_redactor import UsersRedactor
 from src.model.data_access_layer.user_requests.user_requests_redactor import UserRequestsRedactor
 from src.model.data_access_layer.mustwatches.mustwatches_redactor import MustwatchesRedactor
-from src.view.buttons import Button as btn
 
 
 class App:
