@@ -1,11 +1,9 @@
 from telebot.types import Message
-from config.telebot.telebot import Telebot
 
-from src.view.commands_handlers.register_handler.register_response import RegisterResponse
-from src.view.message_sender import MessageSender
+from src.view.events_listeners.register_listener.register_response import RegisterResponse
 
 
-class RegisterCommandHandler:
+class RegisterViewer:
 
     def __init__(self, telebot):
         self.bot = telebot.bot

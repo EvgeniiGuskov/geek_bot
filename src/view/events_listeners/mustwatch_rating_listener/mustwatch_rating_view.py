@@ -1,14 +1,11 @@
 from typing import Dict
+
 from telebot.types import Message
-from config.telebot.telebot import Telebot
 
-from src.view.message_sender import MessageSender
-
-from src.controller.user_data_collector import UserDataCollector
-from src.view.commands_handlers.mustwatch_rating_handler.mustwatch_rating_response import MustwatchRatingResponse
+from src.view.events_listeners.mustwatch_rating_listener.mustwatch_rating_response import MustwatchRatingResponse
 
 
-class MustwatchRatingCommandHandler:
+class MustwatchRatingViewer:
 
     def __init__(self, telebot):
         self.bot = telebot.bot

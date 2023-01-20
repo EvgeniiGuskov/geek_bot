@@ -1,7 +1,8 @@
-from typing import Dict, Tuple, List, Union
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+from typing import Dict, Tuple, Union
 
+from telebot.types import InlineKeyboardMarkup
 from telebot.types import CallbackQuery
+
 from src.view.message_text_responses import MessageTextResponse
 from src.view.buttons import Button
 

@@ -1,11 +1,11 @@
-from config.telebot.telebot import Telebot
+from typing import Tuple, Dict
+
 from telebot.types import CallbackQuery, Message
 
 from src.view.buttons import Button
-from typing import Tuple, Dict
 
 
-class UserDataCollector:
+class TelebotAdapter:
 
     def __init__(self, telebot):
         self.bot = telebot.bot

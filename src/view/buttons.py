@@ -1,4 +1,5 @@
-from typing import Tuple, List, Dict
+from typing import Tuple, Dict
+
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 

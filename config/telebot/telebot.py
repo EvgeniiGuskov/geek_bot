@@ -1,6 +1,5 @@
-from telebot.async_telebot import AsyncTeleBot
-
 import asyncio
+from telebot.async_telebot import AsyncTeleBot
 
 from config.telebot.bot_config import TelebotConfig
 

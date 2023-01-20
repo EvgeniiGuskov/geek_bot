@@ -1,14 +1,12 @@
-from typing import Dict, Tuple, List
+from typing import Dict
+
 from telebot.types import CallbackQuery, Message
-from config.telebot.telebot import Telebot
-from src.controller.user_data_collector import UserDataCollector
+
 from src.view.message_sender import MessageSender
-from src.view.buttons import Button
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-from src.view.commands_handlers.mustwatch_handler.mustwatch_response import MustwatchResponse
+from src.view.events_listeners.mustwatch_listener.mustwatch_response import MustwatchResponse
 
 
-class MustwatchCommandHandler:
+class MustwatchViewer:
 
     def __init__(self, telebot):
         self.msg_sender = MessageSender(telebot)

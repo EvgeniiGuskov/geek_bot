@@ -1,7 +1,9 @@
 from typing import Dict
-from config.telebot.telebot import Telebot
-from telebot.types import InlineKeyboardMarkup, CallbackQuery
+
+from telebot.types import InlineKeyboardMarkup
 from telebot.types import CallbackQuery, Message
+
+from config.telebot.telebot import Telebot
 
 
 class MessageSender(Telebot):
