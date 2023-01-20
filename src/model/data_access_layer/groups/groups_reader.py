@@ -1,5 +1,3 @@
-from sqlalchemy.orm.query import Query
-
 from src.model.tables import Groups
 
 

@@ -3,7 +3,6 @@ from typing import Tuple, Dict, List
 from sqlalchemy.orm.query import Query
 from telebot.types import CallbackQuery
 
-from src.model.tables import Users, UserRequests, Watches, Mustwatches
 from src.service.register_service import RegisterService
 from src.view.buttons import Button
 

@@ -18,6 +18,7 @@ from src.model.data_access_layer.groups.groups_redactor import GroupsRedactor
 from src.model.data_access_layer.users.users_redactor import UsersRedactor
 from src.model.data_access_layer.user_requests.user_requests_redactor import UserRequestsRedactor
 from src.model.data_access_layer.mustwatches.mustwatches_redactor import MustwatchesRedactor
+from src.view.buttons import Button as btn
 
 
 class App:
