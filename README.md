@@ -38,6 +38,7 @@ ___
 |—/controller
 |—/model
 |—/service
+|—/view
 ```
 
 > ### `config`
@@ -55,7 +56,7 @@ ___
 >> #### `model`
 >> Database structure and data access layer
 >> #### `service`
->> Reading and modifying the database according to
+>> Reading and modifying the database according to the
 > > business logic
 >> #### `view`
 >> User interface layer
