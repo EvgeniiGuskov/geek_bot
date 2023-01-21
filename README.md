@@ -4,8 +4,8 @@ ___
 This telegram bot helps to track movies, series and
 similar content recommended by other users from the same
 group. There is a rating system for each group. Group member
-can rate the recommended content, which will be taken into
-account in the rating system of this group.
+can rate the recommended content. The score given by the user will
+be taken into account in the rating system of this group.
 
 ## Prepare to run a project
 
