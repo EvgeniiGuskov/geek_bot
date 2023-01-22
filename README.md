@@ -21,10 +21,10 @@ based on the scores given by group's users.
 
 ___
 
-1. Set a telegram bot token at `.env` file:
+1. Set a telegram bot token at `.env` file:<br/>
    `TOKEN=your_telegram_bot_token`<br/>
 2. Install
-   [Docker](https://www.docker.com/).<br/>
+   [Docker](https://www.docker.com/)<br/>
 
 3. Run `docker-compose up` command at repository
 
