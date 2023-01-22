@@ -5,7 +5,7 @@ from telebot.types import Message
 from src.view.events_listeners.mustwatch_rating_listener.mustwatch_rating_response import MustwatchRatingResponse
 
 
-class MustwatchRatingViewer:
+class MustwatchRatingListener:
 
     def __init__(self, telebot):
         self.bot = telebot.bot
