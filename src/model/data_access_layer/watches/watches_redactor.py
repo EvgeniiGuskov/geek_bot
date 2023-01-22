@@ -10,13 +10,13 @@ class WatchesRedactor:
     def __init__(self, alchemist):
         self.session = alchemist.session
 
-    def insert_values(self,
-                      **kwargs: dict) -> Query:
-        record = Watches(
+    def create_watch(self,
+                     **kwargs: dict) -> Query:
+        watch = Watches(
             **kwargs
         )
-        self.session.add(record)
-        return record
+        self.session.add(watch)
+        return watch
 
     def update_general_score(self,
                              title: str,

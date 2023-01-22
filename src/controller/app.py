@@ -1,9 +1,9 @@
 from config.telebot.telebot import Telebot
 from config.database.alchemist import Alchemist
 from src.controller.telebot_adapter import TelebotAdapter
-from src.view.events_listeners.register_listener.register_view import RegisterViewer
-from src.view.events_listeners.mustwatch_rating_listener.mustwatch_rating_view import MustwatchRatingViewer
-from src.view.events_listeners.mustwatch_listener.mustwatch_view import MustwatchViewer
+from src.view.events_listeners.register_listener.register_view import RegisterView
+from src.view.events_listeners.mustwatch_rating_listener.mustwatch_rating_view import MustwatchRatingView
+from src.view.events_listeners.mustwatch_listener.mustwatch_view import MustwatchView
 from src.service.register_service import RegisterService
 from src.service.mustwatch_rating_service import MustwatchRatingService
 from src.service.mustwatch_service import MustwatchService
@@ -24,9 +24,9 @@ class App:
     def __init__(self):
         self.telebot = Telebot()
         self.telebot_adapter = TelebotAdapter(self.telebot)
-        self.reg_viewer = RegisterViewer(self.telebot)
-        self.mw_rating_viewer = MustwatchRatingViewer(self.telebot)
-        self.mw_viewer = MustwatchViewer(self.telebot)
+        self.reg_viewer = RegisterView(self.telebot)
+        self.mw_rating_viewer = MustwatchRatingView(self.telebot)
+        self.mw_viewer = MustwatchView(self.telebot)
 
         self.alchemist = Alchemist()
         self.groups_read = GroupsReader(self.alchemist)

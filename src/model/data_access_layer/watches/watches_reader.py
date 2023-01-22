@@ -11,13 +11,9 @@ class WatchesReader:
     def __init__(self, alchemist):
         self.session = alchemist.session
 
-    def __get_list_from_raw_list(self,
-                                 raw_list: List[Tuple[int]]) -> List[int]:
-        return [raw_list[i][0] for i in range(len(raw_list))]
-
-    def get_record_by_title_and_chat_id(self,
-                                        title: str,
-                                        chat_id: str) -> Query:
+    def get_watch_by_title_and_chat_id(self,
+                                       title: str,
+                                       chat_id: str) -> Query:
         return self.session.query(Watches).filter(Watches.title == title, Watches.group_id == chat_id).first()
 
     def get_watches_id_list_with_same_title(self,
@@ -38,6 +34,10 @@ class WatchesReader:
                                     watches_id_list: List[int]):
         return self.session.query(Watches.id, Watches.title).filter(Watches.id.in_(watches_id_list))
 
-    def get_record_by_id(self,
-                         chosen_title_id: int) -> Query:
+    def get_watch_by_id(self,
+                        chosen_title_id: int) -> Query:
         return self.session.query(Watches).get(chosen_title_id)
+
+    def __get_list_from_raw_list(self,
+                                 raw_list: List[Tuple[int]]) -> List[int]:
+        return [raw_list[i][0] for i in range(len(raw_list))]

@@ -1,14 +1,15 @@
+from os import getenv
 import asyncio
-from telebot.async_telebot import AsyncTeleBot
 
-from config.telebot.bot_config import TelebotConfig
+from dotenv import load_dotenv
+from telebot.async_telebot import AsyncTeleBot
 
 
 class Telebot:
-    __TOKEN = TelebotConfig.TOKEN
 
     def __init__(self):
-        self.bot = AsyncTeleBot(TelebotConfig.TOKEN)
+        load_dotenv()
+        self.bot = AsyncTeleBot(getenv("TOKEN"))
 
     def poll(self):
         asyncio.run(self.bot.polling())

@@ -6,7 +6,7 @@ from src.view.message_sender import MessageSender
 from src.view.events_listeners.mustwatch_listener.mustwatch_response import MustwatchResponse
 
 
-class MustwatchListener:
+class MustwatchView:
 
     def __init__(self, telebot):
         self.msg_sender = MessageSender(telebot)

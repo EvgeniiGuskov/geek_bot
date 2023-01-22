@@ -8,8 +8,8 @@ class UserRequestsReader:
     def __init__(self, alchemist):
         self.session = alchemist.session
 
-    def get_record(self,
-                   user: Query) -> Query:
+    def get_user_request(self,
+                         user: Query) -> Query:
         return self.session.query(UserRequests).filter(UserRequests.users_id == user.id).first()
 
     def get_record_by_users_and_message_ids(self,

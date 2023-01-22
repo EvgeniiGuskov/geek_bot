@@ -15,12 +15,13 @@ class RegisterService:
         try:
             if not self.users_read.is_user_registered(chat_id, user_id):
                 if not self.groups_read.is_group_registered(chat_id):
-                    self.groups_redact.insert_values(id=chat_id)
-                users_record = self.users_redact.insert_values(telegram_user_id=user_id,
-                                                               group_id=chat_id
-                                                               )
-                self.user_requests_redact.insert_values(
-                    users_id=users_record.id,
+                    self.groups_redact.create_group(id=chat_id)
+                self.users_redact.create_user(telegram_user_id=user_id,
+                                              group_id=chat_id
+                                              )
+                user = self.users_read.get_user(chat_id, user_id)
+                self.user_requests_redact.create_user_request(
+                    users_id=user.id,
                     chosen_user_id=RegisterService.FILL_DATA,
                     title=RegisterService.FILL_DATA
                 )

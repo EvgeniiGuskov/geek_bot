@@ -1,16 +1,19 @@
+from os import getenv
+
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from src.model.tables import Base
-from config.database.db_config import AlchemistConfig
 
 
 class Alchemist:
 
     def __init__(self):
+        load_dotenv()
         self.__engine = create_engine(
-            f"{AlchemistConfig.DATABASE}://{AlchemistConfig.USERNAME}:{AlchemistConfig.PASSWORD}"
-            f"@{AlchemistConfig.HOST}/{AlchemistConfig.DATABASE_NAME}"
+            f"{getenv('DB_SPEC')}://{getenv('POSTGRES_USER')}:{getenv('POSTGRES_PASSWORD')}"
+            f"@{getenv('DB_HOST_PORT')}/{getenv('POSTGRES_DB')}"
         )
         Base.metadata.create_all(self.__engine)
 

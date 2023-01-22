@@ -10,22 +10,13 @@ class UserRequestsRedactor:
     def __init__(self, alchemist):
         self.session = alchemist.session
 
-    def insert_values(self,
-                      **kwargs: dict) -> Query:
-        record = UserRequests(
+    def create_user_request(self,
+                            **kwargs: dict) -> Query:
+        user_request = UserRequests(
             **kwargs
         )
-        self.session.add(record)
-        return record
-
-    def __update_attribute(self,
-                           user: Query,
-                           user_requests_attribute: UserRequests,
-                           new_value: Union[bool, str, int]) -> None:
-        self.session.query(UserRequests).filter(UserRequests.users_id == user.id).update(
-            {user_requests_attribute: new_value},
-            synchronize_session='fetch'
-        )
+        self.session.add(user_request)
+        return user_request
 
     def update_add_or_delete(self,
                              user: Query,
@@ -55,3 +46,12 @@ class UserRequestsRedactor:
                           user: Query,
                           user_score: int) -> None:
         self.__update_attribute(user, UserRequests.user_score, user_score)
+
+    def __update_attribute(self,
+                           user: Query,
+                           user_requests_attribute: UserRequests,
+                           new_value: Union[bool, str, int]) -> None:
+        self.session.query(UserRequests).filter(UserRequests.users_id == user.id).update(
+            {user_requests_attribute: new_value},
+            synchronize_session='fetch'
+        )

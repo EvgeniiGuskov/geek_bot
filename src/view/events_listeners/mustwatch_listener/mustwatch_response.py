@@ -82,13 +82,13 @@ class MustwatchResponse:
         title_word = title
         button = Button.markup_confirm_user_request
         if add_or_delete:
-            bot_message = add_or_delete_word + " " + chosen_user_word + ' "' + title_word + '"?'
+            bot_message = f'{add_or_delete_word} {chosen_user_word} "{title_word}"?'
         else:
-            bot_message = add_or_delete_word + ' "' + title_word + '"?'
+            bot_message = f'{add_or_delete_word} "{title_word}"?'
             if chosen_user == Button.ME_BUTTON_CALLBACK:
                 if user_score:
                     user_score_word = str(user_score)
-                    bot_message = "Поставить оценку " + user_score_word + ' "' + title_word + '"?'
+                    bot_message = f'Поставить оценку {user_score_word} "{title_word}"?'
                 else:
                     bot_message = MessageTextResponse.RATE_MUSTWATCH_MESSAGE
                     button = Button.markup_rate_mustwatch

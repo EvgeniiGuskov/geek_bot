@@ -1,0 +1,25 @@
+services:
+  database:
+    container_name: geek_bot_database
+    image: postgres
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - .env
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+  app:
+    build: .
+    container_name: geek_bot
+    image: app
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - 8080:8080
+volumes:
+  db:
+    driver: local

@@ -36,22 +36,6 @@ class Button:
     RECHOOSE_TITLE_BUTTON_CALLBACK = RECHOOSE_TITLE_BUTTON[1]
 
     @classmethod
-    def __make_buttons_list(cls,
-                            args: Tuple[str, str]) -> list:
-        return [InlineKeyboardButton(args[i][0], callback_data=args[i][1])
-                for i in range(len(args))]
-
-    @classmethod
-    def __markup_something(cls,
-                           row_width: int,
-                           *args: Tuple[str, str]) -> InlineKeyboardMarkup:
-        markup = InlineKeyboardMarkup()
-        markup.row_width = row_width
-        buttons_list = cls.__make_buttons_list(args)
-        markup.add(*buttons_list)
-        return markup
-
-    @classmethod
     def markup_add_or_delete_item(cls) -> InlineKeyboardMarkup:
         return cls.__markup_something(
             1,
@@ -159,3 +143,19 @@ class Button:
             1,
             Button.CHANGE_USER_REQUEST_BUTTON
         )
+
+    @classmethod
+    def __make_buttons_list(cls,
+                            args: Tuple[str, str]) -> list:
+        return [InlineKeyboardButton(args[i][0], callback_data=args[i][1])
+                for i in range(len(args))]
+
+    @classmethod
+    def __markup_something(cls,
+                           row_width: int,
+                           *args: Tuple[str, str]) -> InlineKeyboardMarkup:
+        markup = InlineKeyboardMarkup()
+        markup.row_width = row_width
+        buttons_list = cls.__make_buttons_list(args)
+        markup.add(*buttons_list)
+        return markup

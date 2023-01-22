@@ -8,10 +8,10 @@ class GroupsRedactor:
     def __init__(self, alchemist):
         self.session = alchemist.session
 
-    def insert_values(self,
-                      **kwargs: dict) -> Query:
-        record = Groups(
+    def create_group(self,
+                     **kwargs: dict) -> Query:
+        group = Groups(
             **kwargs
         )
-        self.session.add(record)
-        return record
+        self.session.add(group)
+        return group

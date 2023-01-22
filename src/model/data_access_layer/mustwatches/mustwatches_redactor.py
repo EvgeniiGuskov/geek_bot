@@ -10,13 +10,13 @@ class MustwatchesRedactor:
     def __init__(self, alchemist):
         self.session = alchemist.session
 
-    def insert_values(self,
-                      **kwargs: dict) -> Query:
-        record = Mustwatches(
+    def create_mustwatch(self,
+                         **kwargs: dict) -> Query:
+        mustwatch = Mustwatches(
             **kwargs
         )
-        self.session.add(record)
-        return record
+        self.session.add(mustwatch)
+        return mustwatch
 
     def update_user_score(self,
                           users_id: int,

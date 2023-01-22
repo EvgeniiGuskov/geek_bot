@@ -3,7 +3,7 @@ from telebot.types import Message
 from src.view.events_listeners.register_listener.register_response import RegisterResponse
 
 
-class RegisterListener:
+class RegisterView:
 
     def __init__(self, telebot):
         self.bot = telebot.bot

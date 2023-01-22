@@ -17,7 +17,7 @@ class Groups(Base):
 class Users(Base):
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     telegram_user_id = Column(String(33), nullable=False)
 
     group_id = Column(String(33), ForeignKey("groups.id"))
@@ -40,7 +40,7 @@ class UserRequests(Base):
 class Watches(Base):
     __tablename__ = "watches"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(255), nullable=False)
     general_score = Column(Numeric(3, 1, asdecimal=False), nullable=True)
 
@@ -52,7 +52,7 @@ class Watches(Base):
 class Mustwatches(Base):
     __tablename__ = "mustwatches"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     user_score = Column(Integer, nullable=True)
 
     watches_id = Column(Integer, ForeignKey("watches.id"))

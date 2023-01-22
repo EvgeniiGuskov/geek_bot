@@ -8,10 +8,10 @@ class UsersRedactor:
     def __init__(self, alchemist):
         self.session = alchemist.session
 
-    def insert_values(self,
-                      **kwargs: dict) -> Query:
-        record = Users(
+    def create_user(self,
+                    **kwargs: dict) -> Query:
+        user = Users(
             **kwargs
         )
-        self.session.add(record)
-        return record
+        self.session.add(user)
+        return user

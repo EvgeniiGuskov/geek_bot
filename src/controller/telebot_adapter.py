@@ -10,10 +10,6 @@ class TelebotAdapter:
     def __init__(self, telebot):
         self.bot = telebot.bot
 
-    def __get_user_id_from_call(self,
-                                call: CallbackQuery) -> int:
-        return call.from_user.id
-
     def get_chat_id_from_message(self,
                                  message: Message) -> str:
         return str(message.chat.id)
@@ -84,3 +80,7 @@ class TelebotAdapter:
             return "всем"
         else:
             return "пользователю " + await self.get_user_fullname(message.chat.id, int(chosen_user))
+
+    def __get_user_id_from_call(self,
+                                call: CallbackQuery) -> int:
+        return call.from_user.id
