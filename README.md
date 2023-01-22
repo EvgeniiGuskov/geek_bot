@@ -12,7 +12,7 @@ ___
 interface which allows user to recommend content to any registered
 group member. It is also possible to delete recommended content from
 this group, view the list of recommendations and rate watched
-content.
+content.<br/>
 `/mustwatch_rating` — shows the list of content sorted
 by overall rating of the group. The rating of the movie is calculated
 based on the scores given by group's users.
