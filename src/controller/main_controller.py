@@ -12,7 +12,7 @@ def is_callback_protected_from_intruder(call: CallbackQuery) -> bool:
 
 
 @app.telebot.bot.message_handler(commands=["register"],
-                                 chat_types=["private", "group", "supergroup"])
+                                 chat_types=["group", "supergroup"])
 async def register_user(message):
     user_data = app.telebot_adapter.get_user_data_from_message(message)
     app.db_reg.register_user(*user_data)
@@ -21,7 +21,7 @@ async def register_user(message):
 
 
 @app.telebot.bot.message_handler(commands=["manage_mustwatch"],
-                                 chat_types=["private", "group", "supergroup"])
+                                 chat_types=["group", "supergroup"])
 async def add_mustwatch(message):
     user_data = app.telebot_adapter.get_user_data_from_message(message)
     is_user_registered = app.users_read.is_user_registered(*user_data)
@@ -30,7 +30,7 @@ async def add_mustwatch(message):
 
 
 @app.telebot.bot.message_handler(commands=["mustwatch_rating"],
-                                 chat_types=["private", "group", "supergroup"])
+                                 chat_types=["group", "supergroup"])
 async def show_mustwatch_rating(message):
     chat_id = app.telebot_adapter.get_chat_id_from_message(message)
     rated_watches_dict = app.db_mw_rating.get_rated_watches_dict(chat_id)
@@ -122,7 +122,7 @@ async def add_new_mustwatch_callback_queries(call):
 
 
 @app.telebot.bot.message_handler(func=lambda message: len(message.text) < 256,
-                                 chat_types=["private", "group", "supergroup"])
+                                 chat_types=["group", "supergroup"])
 async def add_title(message):
     user_data = app.telebot_adapter.get_user_data_from_message(message)
     is_user_registered_and_typed_title = app.db_mw.is_user_registered_and_title_is_not_filled(*user_data)
