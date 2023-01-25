@@ -11,6 +11,10 @@ services:
       - 5432:5432
     volumes:
       - db:/var/lib/postgresql/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
   app:
     build: .
     container_name: geek_bot
@@ -20,6 +24,10 @@ services:
       - database
     ports:
       - 8080:8080
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
 volumes:
   db:
     driver: local
